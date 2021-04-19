@@ -1,53 +1,50 @@
-
+import React from 'react';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import './App.css';
-import {useSelector, useDispatch} from 'react-redux';
-import {ChildComp} from './components/ChildComp';
 
-import {
-  incAction,
-  decAction,
-  resetAction,
-  incCustomAction,
 
-    incAction2,
-    decAction2,
-    resetAction2,
-    incCustomAction2,
-
-} from './redux/action-creators'
+import {Header, Products, ProductDetails } from './components';
 
 
 
 function App() {
-    const counter1 = useSelector(({counter1: {counter}}) => {
-        return counter
-    })
 
-    const counter2 = useSelector(({counter2: {counter}}) => {
-        return counter
-    })
-    
-  const dispatch = useDispatch();
   return (
-    <div className="App">
-      <h1>{counter1} - Counter 1</h1>
-        <h1>{counter2} - Counter 2</h1>
-      <button onClick={() => dispatch(incCustomAction(102))}>inc custom</button>
-      <button onClick={() => dispatch(incAction())}>inc</button>
-      <button onClick={() => dispatch(decAction())}>dec</button>
-      <button onClick={() => dispatch(resetAction())}>reset</button>
+    <Router>
 
-        <br/>
+        <div className="App">
+            <Header/>
 
-        <button onClick={() => dispatch(incCustomAction2(50))}>inc custom</button>
-        <button onClick={() => dispatch(incAction2())}>inc</button>
-        <button onClick={() => dispatch(decAction2())}>dec</button>
-        <button onClick={() => dispatch(resetAction2())}>reset</button>
+            <Switch>
+                <Route path='/' exact>
+                    <Redirect to='/products'/>
+                </Route>
 
-        <br/>
-        <br/>
-        <ChildComp/>
-    </div>
+                <Route path='/products' exact >
+                    <Products/>
+                </Route>
+
+                <Route path='/product/:id' >
+                    <ProductDetails/>
+                </Route>
+
+                <Route path='/wishlist' >
+                    <div>wishlist</div>
+                </Route>
+
+
+                <Route path='/cart' >
+                    <div>cart</div>
+                </Route>
+
+
+
+            </Switch>
+
+        </div>
+
+    </Router>
+
   );
 }
 

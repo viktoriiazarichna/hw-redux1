@@ -1,42 +1,36 @@
 import {
-    INC,
-    INC_CUSTOM,
-    DEC,
-    RESET,
+    START_PRODUCTS_LOADING,
+    END_PRODUCTS_LOADING,
+    SET_PRODUCTS
 } from '../action-types'
 
-
 const initialState = {
-    counter: 0
+    products: [],
+    isLoading: false,
 }
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case INC : {
+        case SET_PRODUCTS : {
             return {
                 ...state,
-                counter: state.counter + 1
+                products: action.payload
             }
         }
 
-        case INC_CUSTOM : {
+        case START_PRODUCTS_LOADING : {
             return {
                 ...state,
-                counter: state.counter + action.payload
+                isLoading: true
             }
         }
-        case DEC : {
+        case END_PRODUCTS_LOADING : {
             return {
                 ...state,
-                counter: state.counter - 1
+                isLoading: false
             }
         }
-        case RESET : {
-            return {
-                ...state,
-                counter: 0
-            }
-        }
+
         default: return state;
     }
 }

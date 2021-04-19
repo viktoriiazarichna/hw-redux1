@@ -1,0 +1,15 @@
+.header-style {
+    height: 100px;
+    background: lightseagreen;
+    color: whitesmoke;
+    padding: 0 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header-items {
+    color: black;
+    margin-right: 10px;
+}
