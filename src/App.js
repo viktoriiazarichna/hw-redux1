@@ -24,7 +24,7 @@ function App() {
                     <Products/>
                 </Route>
 
-                <Route path='/product/:id' >
+                <Route path='/product/:id'>
                     <ProductDetails/>
                 </Route>
 
@@ -32,12 +32,9 @@ function App() {
                     <div>wishlist</div>
                 </Route>
 
-
                 <Route path='/cart' >
                     <div>cart</div>
                 </Route>
-
-
 
             </Switch>
 

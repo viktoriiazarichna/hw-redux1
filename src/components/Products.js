@@ -48,7 +48,7 @@ export const Products = () => {
                 ))}
 
             </div>
-                <button onClick={() => setCurrentLimit(prev => prev += LIMIT_STEP)}>load more</button>
+            {products.length < 20 && <button onClick={() => setCurrentLimit(prev => prev += LIMIT_STEP)}>load more</button>}
         </>
 
         )

@@ -13,10 +13,11 @@ const qsHelper = (params) => {
     if(!keys?.length) return result;
 
     keys.forEach((el, i) => {
-        result += `${el}=${params [el]}?`
+        result += `${el}=${params [el]}`
 
         if(i !== keys.length - 1) result += '&'
     })
+
     return result;
 }
 
